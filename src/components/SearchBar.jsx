@@ -1,9 +1,31 @@
-import React from 'react'
+import React from "react";
+import { useState } from "react";
 
-const SearchBar = () => {
+const [term, setTerm] = useState("");
+const SearchBar = ({ onSubmit }) => {
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    onSubmit(term);
+  };
+
+  const onSearchChange = (event) => {
+    event.preventDefault();
+    const searchTerm = event.target.value.toLocaleLowerCase();
+    setTerm(searchTerm);
+  };
   return (
-    <div>SearchBar</div>
-  )
-}
+    <form>
+      <input
+        className='search-box'
+        type='search'
+        placeholder='Search'
+        onChange={onSearchChange}
+      />
+      <button className='search-button'>
+        <i className='fa fa-search'></i>
+      </button>
+    </form>
+  );
+};
 
-export default SearchBar
+export default SearchBar;
