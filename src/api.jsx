@@ -1,10 +1,10 @@
 import axios from "axios";
 
 
-const seaarchImages = async (term) => {
-  const response = axios.get("https://api.unsplash.com/search/photos", {
+const searchImages = async (term) => {
+  const response = await axios.get("https://api.unsplash.com/search/photos", {
     headers: {
-      Authorization: "Client-ID 8O50V7bNzfKdVixwS9W9nZVdr0VnrCv9gmeimfdvp6Y",
+      Authorization: "Client-ID YRRq9SxjHnK4G9gDERsgqmyHde5R6misNXWH95K7kA0",
     },
     params: {
       query: term,

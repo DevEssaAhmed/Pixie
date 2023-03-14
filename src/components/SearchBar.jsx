@@ -1,8 +1,9 @@
 import React from "react";
+import "./styles/SearchBar.css";
 import { useState } from "react";
 
-const [term, setTerm] = useState("");
 const SearchBar = ({ onSubmit }) => {
+  const [term, setTerm] = useState("");
   const handleFormSubmit = (event) => {
     event.preventDefault();
     onSubmit(term);
@@ -14,17 +15,19 @@ const SearchBar = ({ onSubmit }) => {
     setTerm(searchTerm);
   };
   return (
-    <form>
-      <input
-        className='search-box'
-        type='search'
-        placeholder='Search'
-        onChange={onSearchChange}
-      />
-      <button className='search-button'>
-        <i className='fa fa-search'></i>
-      </button>
-    </form>
+    <div className='search-container'>
+      <form onSubmit={handleFormSubmit}>
+        <input
+          className='search-box'
+          type='search'
+          placeholder='Search'
+          onChange={onSearchChange}
+        />
+        <button className='search-button'>
+          <i className='fa fa-search'></i>
+        </button>
+      </form>
+    </div>
   );
 };
 
